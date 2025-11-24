@@ -270,7 +270,7 @@ Use the MCP Inspector to interactively test your server with a web UI:
 **With UV:**
 ```bash
 # Start MCP dev mode
-uv run mcp dev weather.py
+uv run mcp dev <your-server.py>
 ```
 
 **With pip + venv:**
@@ -279,7 +279,7 @@ uv run mcp dev weather.py
 .venv\Scripts\Activate.ps1
 
 # Start MCP dev mode
-mcp dev weather.py
+mcp dev <your-server.py>
 ```
 
 **Features:**
@@ -294,7 +294,7 @@ mcp dev weather.py
 **With UV:**
 ```bash
 # No installation needed - npx downloads temporarily
-npx @modelcontextprotocol/inspector uv run weather.py
+npx @modelcontextprotocol/inspector uv run <your-server.py>
 ```
 
 **With pip + venv:**
@@ -303,7 +303,7 @@ npx @modelcontextprotocol/inspector uv run weather.py
 .venv\Scripts\Activate.ps1
 
 # Run inspector with Python
-npx @modelcontextprotocol/inspector python weather.py
+npx @modelcontextprotocol/inspector python <your-server.py>
 ```
 
 **Features:**
@@ -329,7 +329,7 @@ npx @modelcontextprotocol/inspector python weather.py
 Open browser: http://localhost:5173
 ```
 
-**Example Output:**
+**Example with weather.py:**
 ```bash
 $ npx @modelcontextprotocol/inspector uv run weather.py
 MCP Inspector running at http://localhost:5173
