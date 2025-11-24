@@ -1,5 +1,9 @@
 {
     "servers": {
+        "winget-mcp": {
+            "type": "stdio",
+            "command": "C:\\Users\\SKPATEL\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\WindowsPackageManagerMCPServer.exe"
+        },
         "weather-service": {
             "command": "python",
             "args": [
