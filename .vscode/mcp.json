@@ -5,8 +5,9 @@
             "command": "C:\\Users\\SKPATEL\\AppData\\Local\\Microsoft\\WindowsApps\\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\\WindowsPackageManagerMCPServer.exe"
         },
         "weather-service": {
-            "command": "python",
+            "command": "uv",
             "args": [
+                "run",
                 "weather.py"
             ],
             "env": {}
