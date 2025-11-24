@@ -257,52 +257,84 @@ python weather.py
 
 ### Method 3: MCP Inspector 🔍 (Development & Debugging)
 
-Use the MCP Inspector to interactively test your server:
+Use the MCP Inspector to interactively test your server with a web UI:
 
 <table>
 <tr>
-<th width="50%">Using UV</th>
-<th width="50%">Using pip + venv</th>
+<th width="50%">Using Python MCP CLI</th>
+<th width="50%">Using Node.js npx (Recommended)</th>
 </tr>
 <tr>
 <td>
 
+**With UV:**
 ```bash
-# Install MCP inspector (if not installed)
-uv add mcp-inspector
-
-# Start inspector
+# Start MCP dev mode
 uv run mcp dev weather.py
 ```
+
+**With pip + venv:**
+```bash
+# Activate venv first
+.venv\Scripts\Activate.ps1
+
+# Start MCP dev mode
+mcp dev weather.py
+```
+
+**Features:**
+- Terminal-based debugging
+- Log output in console
+- Quick server validation
+- ❌ No web UI
 
 </td>
 <td>
 
+**With UV:**
 ```bash
-# Install MCP inspector
-pip install mcp-inspector
+# No installation needed - npx downloads temporarily
+npx @modelcontextprotocol/inspector uv run weather.py
+```
 
-# Activate venv
+**With pip + venv:**
+```bash
+# Activate venv first
 .venv\Scripts\Activate.ps1
 
-# Start inspector
-mcp dev weather.py
+# Run inspector with Python
+npx @modelcontextprotocol/inspector python weather.py
 ```
+
+**Features:**
+- ✅ Interactive web UI
+- ✅ Visual tool explorer
+- ✅ Request/response inspection
+- ✅ Real-time testing
+- ✅ Always latest version
 
 </td>
 </tr>
 </table>
 
 **MCP Inspector Features:**
-- 🔍 Interactive tool testing
+- 🔍 Interactive tool testing in browser
 - 📊 Request/response inspection
 - 🐛 Real-time debugging
 - 📝 Schema validation
-- 🔄 Live reload on file changes
+- 🎨 Visual interface for all MCP tools
 
 **Access Inspector:**
 ```
 Open browser: http://localhost:5173
+```
+
+**Example Output:**
+```bash
+$ npx @modelcontextprotocol/inspector uv run weather.py
+MCP Inspector running at http://localhost:5173
+Server: Weather Service
+Tools available: get_weather
 ```
 
 ## 📁 Project Structure
