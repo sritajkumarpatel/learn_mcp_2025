@@ -1,0 +1,11 @@
+{
+    "servers": {
+        "weather-service": {
+            "command": "python",
+            "args": [
+                "weather.py"
+            ],
+            "env": {}
+        }
+    }
+}
