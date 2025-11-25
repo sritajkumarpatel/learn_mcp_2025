@@ -11,6 +11,13 @@
                 "weather.py"
             ],
             "env": {}
-        }
+        },
+        "airbnb": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@openbnb/mcp-server-airbnb"
+      ]
+    }
     }
 }
