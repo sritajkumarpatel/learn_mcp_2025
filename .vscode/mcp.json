@@ -17,16 +17,23 @@
             "args": [
                 "-y",
                 "@openbnb/mcp-server-airbnb"
-      ]
-    },
-    "local-notes": {
-        "command": "uv",
-        "args": [
-            "run",
-            "local_notes.py"
-        ],
-        "env": {}
+            ]
+        },
+        "local-notes": {
+            "command": "uv",
+            "args": [
+                "run",
+                "local_notes.py"
+            ],
+            "env": {}
+        },
+        "screenshot-tool": {
+            "command": "uv",
+            "args": [
+                "run",
+                "screenshot_tool.py"
+            ],
+            "env": {}
+        }
     }
-}
-    
 }
