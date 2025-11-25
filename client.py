@@ -43,7 +43,12 @@ async def run(location: str):
             await session.initialize()
             
             try:
+                print("Available tools:")
+                tools = await session.list_tools()
+                print(tools)
+                print("-" * 40)
                 # Call the get_weather tool with location argument
+                print("Calling get_weather tool...")
                 weather: str = await session.call_tool(
                     "get_weather", 
                     arguments={"location": location}
