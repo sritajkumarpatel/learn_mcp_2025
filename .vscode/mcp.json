@@ -18,6 +18,15 @@
                 "-y",
                 "@openbnb/mcp-server-airbnb"
       ]
+    },
+    "local-notes": {
+        "command": "uv",
+        "args": [
+            "run",
+            "local_notes.py"
+        ],
+        "env": {}
     }
-    }
+}
+    
 }
