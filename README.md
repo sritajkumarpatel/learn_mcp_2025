@@ -337,6 +337,38 @@ Server: Weather Service
 Tools available: get_weather
 ```
 
+### Method 4: Python Client 🐍 (Programmatic Access)
+
+Use Python code to connect to MCP servers programmatically:
+
+**Example 1: Connect to Weather Service (Python Server)**
+
+```bash
+# Run the weather client
+python client.py
+```
+
+**Example 2: Connect to Airbnb Service (Node.js Server)**
+
+```bash
+# Run the Airbnb client (connects to Node.js server via npx)
+python client_airbnb.py
+```
+
+**Client Features:**
+- 📡 Programmatic MCP server connections
+- 🔄 Async/await communication patterns
+- 🌐 Cross-language support (Python ↔ Node.js)
+- 🛠️ Direct tool invocation from code
+- 📋 Dynamic tool discovery with `list_tools()`
+
+**When to use:**
+- ✅ Building MCP-powered applications
+- ✅ Automating tool calls in scripts
+- ✅ Testing server integrations
+- ✅ Creating custom MCP workflows
+- ✅ Connecting to third-party MCP servers
+
 ## 📁 Project Structure
 
 ```
@@ -344,7 +376,9 @@ learn-mcp-2025/
 ├── .vscode/
 │   └── mcp.json              # MCP server configuration for VS Code
 ├── .venv/                    # Virtual environment (pip only)
-├── weather.py                # Main MCP server implementation
+├── weather.py                # Weather MCP server implementation
+├── client.py                 # Python MCP client for weather service
+├── client_airbnb.py          # Python MCP client for Airbnb service (Node.js)
 ├── pyproject.toml            # Project metadata & dependencies (UV)
 ├── requirements.txt          # Pinned dependencies (pip)
 ├── uv.lock                   # Locked dependency versions (UV)
@@ -358,6 +392,8 @@ learn-mcp-2025/
 | File | Purpose |
 |------|---------|
 | `weather.py` | MCP server with tools decorated with `@mcp.tool()` |
+| `client.py` | Python client connecting to weather.py MCP server |
+| `client_airbnb.py` | Python client connecting to Node.js Airbnb MCP server |
 | `pyproject.toml` | Modern Python project configuration (PEP 621) |
 | `requirements.txt` | Traditional pip dependency list |
 | `uv.lock` | UV's deterministic dependency lock file |
@@ -463,7 +499,61 @@ def get_temperature(
     return f"Temperature in {location}: {temp}°{unit[0].upper()}"
 ```
 
-### Example 4: Debugging & Verification 🐛
+### Example 4: Building a Python MCP Client 🔌
+
+```python
+# client.py
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+import asyncio
+
+server_params = StdioServerParameters(
+    command="uv",
+    args=["run", "weather.py"]
+)
+
+async def main():
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            
+            # Call a tool
+            result = await session.call_tool(
+                "get_weather", 
+                arguments={"location": "Tokyo"}
+            )
+            print(result)
+            
+            # List all available tools
+            tools = await session.list_tools()
+            print(f"Available tools: {tools}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Example 5: Cross-Language MCP Integration 🌐
+
+Connect Python client to Node.js MCP server:
+
+```python
+# client_airbnb.py
+server_params = StdioServerParameters(
+    command="npx",
+    args=["-y", "@openbnb/mcp-server-airbnb"]
+)
+
+async def main():
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            
+            # Discover tools from Node.js server
+            tools = await session.list_tools()
+            print(f"Airbnb MCP Tools: {tools}")
+```
+
+### Example 6: Debugging & Verification 🐛
 
 ```bash
 # List all tools in your server
@@ -477,6 +567,10 @@ uv pip show mcp
 
 # Test imports
 uv run python -c "from weather import mcp; print('MCP initialized successfully')"
+
+# Run client tests
+python client.py
+python client_airbnb.py
 ```
 
 ## 🤝 Contributing
