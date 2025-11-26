@@ -42,6 +42,14 @@
                 "crypto.py"
             ],
             "env": {}
+        },
+        "web-search": {
+            "command": "uv",
+            "args": [
+                "run",
+                "websearch_mcp_server.py"
+            ],
+            "env": {}
         }
     }
 }
