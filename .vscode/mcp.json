@@ -34,6 +34,14 @@
                 "screenshot_tool.py"
             ],
             "env": {}
+        },
+        "crypto-prices": {
+            "command": "uv",
+            "args": [
+                "run",
+                "crypto.py"
+            ],
+            "env": {}
         }
     }
 }
