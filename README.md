@@ -373,31 +373,47 @@ python client_airbnb.py
 
 ```
 learn-mcp-2025/
+├── .github/
+│   ├── copilot-instructions.md    # AI agent development guidelines
+│   └── prompts/                   # Reusable prompt templates
 ├── .vscode/
-│   └── mcp.json              # MCP server configuration for VS Code
-├── .venv/                    # Virtual environment (pip only)
-├── weather.py                # Weather MCP server implementation
-├── client.py                 # Python MCP client for weather service
-├── client_airbnb.py          # Python MCP client for Airbnb service (Node.js)
-├── pyproject.toml            # Project metadata & dependencies (UV)
-├── requirements.txt          # Pinned dependencies (pip)
-├── uv.lock                   # Locked dependency versions (UV)
-├── .python-version           # Python version specification
-├── .gitignore               # Git ignore rules
-└── README.md                # This file
+│   └── mcp.json                   # MCP server configuration for VS Code/AI assistants
+├── .venv/                         # Virtual environment (pip only)
+│
+├── MCP Servers (Tools for AI Assistants)
+├── weather__mcp_server.py         # 🔧 Weather service tools
+├── crypto_mcp_server.py           # 🔧 Cryptocurrency price tools
+├── local_notes_mcp_server.py      # 🔧 Local notes management tools
+├── screenshot_tool.py             # 🔧 Screenshot capture tool
+│
+├── MCP Clients (Test & Integration)
+├── weather_mcp_client.py          # 🔌 Client for weather server
+├── airbnb_mcp_client.py           # 🔌 Client for Airbnb server (Node.js)
+│
+├── Configuration & Dependencies
+├── pyproject.toml                 # Project metadata & dependencies (UV)
+├── requirements.txt               # Pinned dependencies (pip)
+├── uv.lock                        # Locked dependency versions (UV)
+├── .python-version                # Python version specification
+├── .gitignore                     # Git ignore rules
+├── notes.txt                      # Data file for local_notes_mcp_server
+└── README.md                      # This file
 ```
 
 ### Key Files Explained
 
-| File | Purpose |
-|------|---------|
-| `weather.py` | MCP server with tools decorated with `@mcp.tool()` |
-| `client.py` | Python client connecting to weather.py MCP server |
-| `client_airbnb.py` | Python client connecting to Node.js Airbnb MCP server |
-| `pyproject.toml` | Modern Python project configuration (PEP 621) |
-| `requirements.txt` | Traditional pip dependency list |
-| `uv.lock` | UV's deterministic dependency lock file |
-| `.vscode/mcp.json` | MCP client configuration for VS Code |
+| File | Type | Purpose |
+|------|------|---------|
+| `weather__mcp_server.py` | **MCP Server** | Weather service with mock weather data tools |
+| `crypto_mcp_server.py` | **MCP Server** | Cryptocurrency price lookup tools |
+| `local_notes_mcp_server.py` | **MCP Server** | File-based notes management (add/get) |
+| `screenshot_tool.py` | **MCP Server** | Screenshot capture using Pillow |
+| `weather_mcp_client.py` | **MCP Client** | Python client connecting to weather server |
+| `airbnb_mcp_client.py` | **MCP Client** | Python client connecting to Node.js Airbnb server |
+| `pyproject.toml` | Config | Modern Python project configuration (PEP 621) |
+| `requirements.txt` | Config | Traditional pip dependency list (auto-generated) |
+| `uv.lock` | Config | UV's deterministic dependency lock file |
+| `.vscode/mcp.json` | Config | MCP server registry for VS Code/Claude Desktop |
 
 ## 📚 Quick Command Reference
 
