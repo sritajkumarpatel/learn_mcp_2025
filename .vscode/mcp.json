@@ -50,6 +50,14 @@
                 "websearch_mcp_server.py"
             ],
             "env": {}
+        },
+        "save_person":{
+            "command": "uv",
+            "args": [
+                "run",
+                "pydantic_schema_person_server.py"
+            ],
+            "env": {}
         }
     }
 }
