@@ -58,6 +58,14 @@
                 "pydantic_schema_person_server.py"
             ],
             "env": {}
+        },
+        "prompt-mcp-server": {
+            "command": "uv",
+            "args": [
+                "run",
+                "prompt_mcp_server.py"
+            ],
+            "env": {}
         }
     }
 }
