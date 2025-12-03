@@ -67,7 +67,7 @@
             ],
             "env": {}
         },
-        "inventory_resoursce": {
+        "inventory_resource": {
             "command": "uv",
             "args": [
                 "run",
