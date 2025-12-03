@@ -66,6 +66,14 @@
                 "prompt_mcp_server.py"
             ],
             "env": {}
+        },
+        "inventory_resoursce": {
+            "command": "uv",
+            "args": [
+                "run",
+                "resources_mcp_server.py"
+            ],
+            "env": {}
         }
     }
 }
